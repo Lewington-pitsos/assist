@@ -43,3 +43,14 @@ func Flattened(values [][]interface{}) []interface{} {
 
 	return final
 }
+
+func FlattenedInt(values [][]int) []int {
+	final := make([]int, 10000)
+	for _, list := range values {
+		for _, value := range list {
+			final = append(final, value)
+		}
+	}
+
+	return final
+}
