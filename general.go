@@ -1,4 +1,4 @@
-package help
+package assist
 
 import (
 	"strconv"
@@ -9,6 +9,12 @@ func Check(err error) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func ToInt(str string) int {
+	i, err := strconv.Atoi(str)
+	Check(err)
+	return i
 }
 
 func Wait(milliseconds int) {
@@ -27,8 +33,8 @@ func ToFloat32(str string) float32 {
 	return float32(f)
 }
 
-func Flattened(values [][]int) []int {
-	final := make([]int, 10000)
+func Flattened(values [][]interface{}) []interface{} {
+	final := make([]interface{}, 10000)
 	for _, list := range values {
 		for _, value := range list {
 			final = append(final, value)
